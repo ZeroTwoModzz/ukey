@@ -1,0 +1,28 @@
+<html>
+<head>   
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<title>UkeyProject</title>
+</head>
+<body>
+<form id="keyform" action="key.html" method="post">
+<input type="text" id="user" name="user" style="visibility: hidden;"><br />
+</form>
+<label class="labelhead">Verify to get the key!</label>
+<div class="g-recaptcha" data-callback="recaptchaCallback" data-sitekey="6LfUC7AZAAAAADuLG3AUdSo6cazyXa_52r3LpSGg"></div>
+</body>
+<script>
+document.getElementById("user").value = makeid(25) 
+function makeid(length) {
+   var result           = '';
+   var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+   var charactersLength = characters.length;
+   for ( var i = 0; i < length; i++ ) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+   }
+   return result;
+}
+function recaptchaCallback() {
+    document.getElementById('keyform').submit();
+};
+</script>
+</html>
