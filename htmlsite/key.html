@@ -1,0 +1,24 @@
+<html>
+<head>
+<title>UkeyToturial<title>
+</head>
+<body>
+<label">Key Generated Successfully</label>
+</body>
+<?php
+    $conn = mysql_connect("Servername","username","password");
+    $db      = mysql_select_db("databasename",$conn);
+?>
+<?php
+    $name       =      $_POST['user'];
+    $sql     = "INSERT into ukey values('$name')";
+    $qury  = mysql_query($sql);
+    if(!$qury)
+        echo mysql_error();
+    else
+    {
+    echo '<div class="loginbox" id="phplogin">';
+    echo '<input  id="keylast" tyle="z-index: -1" value="'.$name.'" >';
+    }
+?>
+</html>
